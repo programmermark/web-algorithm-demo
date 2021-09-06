@@ -1,65 +1,98 @@
 <script>
-  /** 时间复杂度O(1) */
-  function fnO1() {
-    console.log("时间复杂度O(1)");
+  // /** 时间复杂度O(1) */
+  // function fnO1() {
+  //   console.log("时间复杂度O(1)");
 
-    const a = 5;
-    const b = 10;
-    const sum = a + b;
+  //   const a = 5;
+  //   const b = 10;
+  //   const sum = a + b;
+  // }
+
+  // /** 时间复杂度 O(logn)、 O(nlogn) */
+
+  // function fnOlogn(n) {
+  //   console.log("时间复杂度O(logn)");
+
+  //   let count = 0;
+  //   let i = 1;
+  //   while (i < n) {
+  //     i = i * 2;
+  //     count++;
+  //   }
+
+  //   console.log("时间复杂度O(logn), 执行次数count: ", count);
+  // }
+
+  // function fnOnlogn(n) {
+  //   console.log("时间复杂度O(nlogn)");
+  //   let count = 0;
+  //   for (let j = 0; j < n; j++) {
+  //     let i = 1;
+  //     while (i < n) {
+  //       i = i * 2;
+  //       count++;
+  //     }
+  //   }
+  //   console.log("时间复杂度O(nlogn), 执行次数count: ", count);
+  // }
+
+  // /** 时间复杂度 fnO(m+n), 当可以确认n >= m的时候，时间复杂度可以修改为 O(n) */
+
+  // function fnOmn1(m, n) {
+  //   let countM = 0;
+  //   let countN = 0;
+  //   for (let i = 0; i < m; i++) {
+  //     countM += 1;
+  //   }
+  //   for (let j = 0; j < n; j++) {
+  //     countN += 1;
+  //   }
+
+  //   console.log("时间复杂度O(m+n)，执行次数count: ", countM + countN);
+  // }
+
+  // /** 时间复杂度 fnO(m*n), 当可以确认n >= m的时候，时间复杂度可以修改为 O(n^2) */
+  // function fnOmn2(m, n) {
+  //   let count = 0;
+  //   for (let i = 0; i < m; i++) {
+  //     for (let j = 0; j < n; j++) {
+  //       count += 1;
+  //     }
+  //   }
+
+  //   console.log("时间复杂度O(m*n)，执行次数count: ", count);
+  // }
+
+  function array2List(arr, type = 0) {
+    if (!arr.length) return null;
+    let header = { data: arr[0], next: null };
+    let obj = header;
+    for (let i = 1; i < arr.length; i++) {
+      obj.next = { data: arr[i], next: null };
+      obj = obj.next;
+    }
+    if (type) obj.next = header;
+    return header;
   }
 
-  /** 时间复杂度 O(logn)、 O(nlogn) */
+  var list = array2List([1, 2, 3, 4, 5]);
+  console.log(list);
 
-  function fnOlogn(n) {
-    console.log("时间复杂度O(logn)");
-
-    let count = 0;
-    let i = 1;
-    while (i < n) {
-      i = i * 2;
-      count++;
+  var reverseList = function (head) {
+    console.log(head);
+    let p1 = head;
+    let p2 = null;
+    while (p1) {
+      const tmp = p1.next;
+      p1.next = p2;
+      p2 = p1;
+      p1 = tmp;
+      // p2 = p1;
+      // p1 = p1.next;
     }
+    return p2;
+  };
 
-    console.log("时间复杂度O(logn), 执行次数count: ", count);
-  }
-
-  function fnOnlogn(n) {
-    console.log("时间复杂度O(nlogn)");
-    let count = 0;
-    for (let j = 0; j < n; j++) {
-      let i = 1;
-      while (i < n) {
-        i = i * 2;
-        count++;
-      }
-    }
-    console.log("时间复杂度O(nlogn), 执行次数count: ", count);
-  }
-
-  /** 时间复杂度 fnO(m+n), 当可以确认n >= m的时候，时间复杂度可以修改为 O(n) */
-
-  function fnOmn1(m, n) {
-    let countM = 0;
-    let countN = 0;
-    for (let i = 0; i < m; i++) {
-      countM += 1;
-    }
-    for (let j = 0; j < n; j++) {
-      countN += 1;
-    }
-
-    console.log("时间复杂度O(m+n)，执行次数count: ", countM + countN);
-  }
-
-  /** 时间复杂度 fnO(m*n), 当可以确认n >= m的时候，时间复杂度可以修改为 O(n^2) */
-  function fnOmn2(m, n) {
-    let count = 0;
-    for (let i = 0; i < m; i++) {
-      for (let j = 0; j < n; j++) {
-        count += 1;
-      }
-    }
-
-    console.log("时间复杂度O(m*n)，执行次数count: ", count);
-  }
+  var result = reverseList(list);
+  console.log(result);
 </script>
