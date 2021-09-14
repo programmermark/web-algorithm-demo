@@ -13,12 +13,12 @@ c.next = d;
 
 /** 遍历链表: 定义一个变量等于链表表头，在表头有值的情况下，不断将变量指向当前链表元素的下一个元素 */
 
-// let p = a;
+let p = a;
 
-// while (p) {
-//   console.log(p.val);
-//   p = p.next;
-// }
+while (p) {
+  console.log(p.val);
+  p = p.next;
+}
 
 /** 插入元素 */
 
@@ -41,14 +41,14 @@ c.next = d;
  *
  */
 
-const tmp = c.next;
-c.next = b;
-b.next = tmp;
-a.next = c;
+// const tmp = c.next;
+// c.next = b;
+// b.next = tmp;
+// a.next = c;
 
-let p = a;
+// let p = a;
 
-while (p) {
-  console.log(p.val);
-  p = p.next;
-}
+// while (p) {
+//   console.log(p.val);
+//   p = p.next;
+// }
